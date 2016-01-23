@@ -17,6 +17,7 @@ CREATE TABLE Events (
   host_name TEXT NOT NULL, 
   host_latitude float NOT NULL,
   host_longitude float NOT NULL,
+  pic_url TEXT NULL,
 
   FOREIGN KEY (user_id) REFERENCES KitchitUser(id)
     ON DELETE CASCADE

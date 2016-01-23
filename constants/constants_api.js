@@ -5,5 +5,6 @@ module.exports = {
     DECLINE_EVENT : "declineEvent",
     ACCEPT_EVENT : "acceptEvent",
 
-    PORT: 8082
+    PORT: 8082,
+    DOMAIN: "localhost"
 };
