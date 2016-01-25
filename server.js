@@ -11,7 +11,6 @@ var APIs = require("./constants/constants_api.js");
 var PARAMs = require("./constants/constants_params.js");
 var PGs = require("./constants/constants_pg.js");
 
-var IMAGE_PATH = "./images/events/";
 ////////
 
 var conString = "postgres://" + PGs.USER + ":" + PGs.PASS + "@" + PGs.HOST + ":" + PGs.PORT + "/" + PGs.DB;
@@ -83,10 +82,17 @@ app.get(APIs.ACCEPT_EVENT, function (req, res) {
 app.get(APIs.CHECKIN_USER, function (req, res) {
    initialization();
 
-   var returnData = {};
-   res.end( returnData );
+   var userId = req.query[PARAMs.USERID];
+   var eventId = req.query[PARAMs.EVENTID];
 
-   cleanup();
+   var lat = req.query[PARAMs.LATITUDE];
+   var long = req.query[PARAMs.LONGITUDE];
+
+   var insertQuery = "INSERT INTO " + PGs.TABLE_CHECKIN + " (user_id, event_id) values (" + userId + "," + eventId + ");";
+   QUERY(insertQuery, function(err, rows, result) {
+        var returnData = {};
+        returnDataToClient(res, returnData, err);
+   });  
 });
 
 app.get(APIs.GET_MY_UPCOMING_EVENTS, function (req, res) {

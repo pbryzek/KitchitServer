@@ -3,5 +3,7 @@ module.exports = {
     EVENTID: "eventId",
     SUCCESS: "success",
     ERRORMSG: "errorMsg",
-    EVENTS: "events"
+    EVENTS: "events",
+    LATITUDE: "lat",
+    LONGITUDE: "long"
 };
