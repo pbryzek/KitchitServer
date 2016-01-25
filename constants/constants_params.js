@@ -1,3 +1,4 @@
 module.exports = {
-    USERID: "userId"
+    USERID: "userId",
+    EVENTID: "eventId"
 };

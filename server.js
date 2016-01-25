@@ -39,8 +39,14 @@ app.get(APIs.UPDATE_CHEF_LOCATION, function (req, res) {
 app.get(APIs.DECLINE_EVENT, function (req, res) {
    initialization();
 
+   var userId = req.query[PARAMs.USERID];
+   var eventId = req.query[PARAMs.EVENTID];
+
+   console.log("event id = " + eventId);
+   console.log("userId = " + userId);
+
    var returnData = {};
-   res.end( returnData );
+   res.end( JSON.stringify(returnData )); 
 
    cleanup();
 });
@@ -48,9 +54,14 @@ app.get(APIs.DECLINE_EVENT, function (req, res) {
 app.get(APIs.ACCEPT_EVENT, function (req, res) {
    initialization();
 
-   var returnData = {};
-   res.end( returnData );
+   var userId = req.query[PARAMs.USERID];
+   var eventId = req.query[PARAMs.EVENTID];
 
+   console.log("event id = " + eventId);
+   console.log("userId = " + userId);
+
+   var returnData = {};
+   res.end( JSON.stringify(returnData )); 
    cleanup();
 });
 
