@@ -89,6 +89,18 @@ app.get(APIs.CHECKIN_USER, function (req, res) {
    cleanup();
 });
 
+app.get(APIs.GET_MY_UPCOMING_EVENTS, function (req, res) {
+   initialization();
+ 
+   var userId = req.query[PARAMs.USERID];
+   var getEventsQuery = "SELECT * FROM " + PGs.TABLE_EVENTS + " where event_time >= now() and user_id = " + userId + ";";
+   QUERY(getEventsQuery, function(err, rows, result) {
+       var returnData = {};
+       returnData[PARAMs.EVENTS] = result.rows;
+       returnDataToClient(res, returnData, err);
+   });
+});
+
 app.get(APIs.GET_UPCOMING_EVENTS, function (req, res) {
    initialization();
 
