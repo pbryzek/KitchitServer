@@ -8,6 +8,7 @@ module.exports = {
     TABLE_LOCATION: "currentlocation",
     TABLE_CHECKIN: "checkin",
     TABLE_EVENTS: "events",
-    TABLE_USER: "kitchituser"
+    TABLE_USER: "kitchituser",
+    TABLE_DECLINE_EVENTS: "DeclineEvents"
 };
 

@@ -1,4 +1,7 @@
 module.exports = {
     USERID: "userId",
-    EVENTID: "eventId"
+    EVENTID: "eventId",
+    SUCCESS: "success",
+    ERRORMSG: "errorMsg",
+    EVENTS: "events"
 };
