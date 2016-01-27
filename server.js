@@ -43,12 +43,15 @@ function returnDataToClient(res, returnData, err) {
 app.get(APIs.UPDATE_CHEF_LOCATION, function (req, res) {
    initialization();
 
-   var userId = req.param(PARAMs[USERID]);
- 
-   var returnData = {};
-   res.end( returnData );
+   var userId = req.query[PARAMs.USERID];
+   var lat = req.query[PARAMs.LATITUDE];
+   var long = req.query[PARAMs.LONGITUDE];
 
-   cleanup();
+   var insertQuery = "INSERT INTO " + PGs.TABLE_LOCATION + " (user_id, latitude, longitude) values (" + userId + "," + lat + "," + long + ") ON CONFLICT (user_id) DO UPDATE SET latitude=" + lat + " , longitude=" + long + ";"; 
+   var returnData = {}; 
+   QUERY(insertQuery, function(err, rows, result) {
+       returnDataToClient(res, returnData, err);
+   });
 });
 
 app.get(APIs.CANCEL_EVENT, function (req, res) {
