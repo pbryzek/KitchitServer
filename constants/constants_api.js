@@ -4,6 +4,7 @@ module.exports = {
     UPDATE_CHEF_LOCATION : "/updateChefLocation",
     DECLINE_EVENT : "/declineEvent",
     ACCEPT_EVENT : "/acceptEvent",
+    CANCEL_EVENT : "/cancelEvent",
     GET_MY_UPCOMING_EVENTS: "/myUpcomingEvents",
   
     PORT: 8082,
