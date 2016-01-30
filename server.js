@@ -2,7 +2,6 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-var mysql = require('mysql');
 var PG = require('pg');
 var FS = require('fs');
 var QUERY = require('pg-query');
